@@ -2,6 +2,7 @@
 require 'cosmos'
 require 'cosmos/script'
 require 'generic_css_lib.rb'
+require 'generic_eps_lib.rb'
 require 'generic_fss_lib.rb'
 require 'generic_imu_lib.rb'
 require 'generic_mag_lib.rb'
