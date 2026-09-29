@@ -5,7 +5,9 @@ include(../../../ComponentSettings.cmake)
 
 include_directories(mission_inc)
 include_directories(platform_inc)
+include_directories(../shared)
 include_directories(src)
+
 include_directories(../../../generic_mag/fsw/cfs/platform_inc)
 include_directories(../../../generic_mag/fsw/cfs/src)
 include_directories(../../../generic_mag/fsw/shared)
@@ -27,14 +29,18 @@ include_directories(../../../generic_reaction_wheel/fsw/shared)
 include_directories(../../../generic_star_tracker/fsw/cfs/platform_inc)
 include_directories(../../../generic_star_tracker/fsw/cfs/src)
 include_directories(../../../generic_star_tracker/fsw/shared)
+include_directories(../../../novatel_oem615/fsw/cfs/platform_inc)
+include_directories(../../../novatel_oem615/fsw/cfs/src)
+include_directories(../../../novatel_oem615/fsw/shared)
 include_directories(${hwlib_MISSION_DIR}/fsw/public_inc)
 
 aux_source_directory(src APP_SRC_FILES)
+aux_source_directory(../shared APP_SRC_FILES)
 
 # Create the app module
 add_cfe_app(generic_adcs ${APP_SRC_FILES})
 
 # Install GNC configuration files
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cfg/Inp_DI.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/${TGTSYS_${SYSVAR}}/${INSTALL_SUBDIR})
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cfg/Inp_ADAC.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/${TGTSYS_${SYSVAR}}/${INSTALL_SUBDIR})
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cfg/Inp_DO.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/${TGTSYS_${SYSVAR}}/${INSTALL_SUBDIR})
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../shared/cfg/Inp_DI.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/${TGTSYS_${SYSVAR}}/${INSTALL_SUBDIR})
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../shared/cfg/Inp_ADAC.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/${TGTSYS_${SYSVAR}}/${INSTALL_SUBDIR})
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/../shared/cfg/Inp_DO.txt DESTINATION ${CMAKE_INSTALL_PREFIX}/${TGTSYS_${SYSVAR}}/${INSTALL_SUBDIR})
